@@ -15,7 +15,6 @@ public class Main extends JavaPlugin {
         super.onEnable();
         wiad.log(Level.INFO, "Enable plugin for Chat!");
         wiad.log(Level.INFO, "RCode plugin!");
-
     }
 
     @Override
