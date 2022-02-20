@@ -7,6 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import rcode.chat.Main;
+import rcode.chat.config.Data;
 
 public class ChatCMD implements CommandExecutor {
 
@@ -14,14 +15,15 @@ public class ChatCMD implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         boolean zwrot = true;
         Player p = (Player)sender;
-        if (!p.hasPermission(Main.getInstance().getConfig().getString("permission"))) {
-            String msg = Main.getInstance().getConfig().getString("nopermMSG");
+        Data data = new Data(Main.getInstance().getConfig());
+        if (!p.hasPermission(data.getMsg("permission"))) {
+            String msg = data.getMsg("nopermMSG");
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             return false;
         }
         String clearp, clear;
-        clearp = Main.getInstance().getConfig().getString("succesClearChatMessageToExecutor");
-        clear = Main.getInstance().getConfig().getString("succesClearChatMessageToPlayers");
+        clearp = data.getMsg("succesClearChatMessageToExecutor");
+        clear = data.getMsg("succesClearChatMessageToPlayers");
         switch (args[0].toLowerCase()) {
             case "clear":
             case "cc":
@@ -32,23 +34,21 @@ public class ChatCMD implements CommandExecutor {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', clearp));
                 break;
             case "off":
-                if (Main.chat.equals(0)) {
-                    return false;
+                if (!data.getChat()) {
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("chatisAlreadyDisabled")));
                 }
-                Main.chat.clear();
-                Main.chat.add(0);
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', ""));
+                Bukkit.getOnlinePlayers().forEach(player -> player.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("succesOFFChatMessageToPlayers"))));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("succesOFFChatMessageToExecutor")));
                 break;
             case "on":
-                if (Main.chat.equals(1)) {
-                    return false;
+                if (data.getChat()) {
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("chatisAlreadyEnabled")));
                 }
-                Main.chat.clear();
-                Main.chat.add(1);
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', ""));
+                Bukkit.getOnlinePlayers().forEach(player -> player.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("succesONChatMessageToPlayers"))));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("succesONChatMessageToExecutor")));
                 break;
             default:
-                String usage = Main.getInstance().getConfig().getString("usage");
+                String usage = data.getMsg("usage");
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', usage));
                 break;
         }

@@ -1,7 +1,22 @@
-#support colors! &
+#RCode
+
+chatEnabled: true
 
 permission: "chat.perm"
+permissiontoWriteifDisabled: "chat.write"
 nopermMSG: "&8>> &cNo permission!"
 usage: "&eUsage /chat clear/off/on"
+chatisOFF: "You haven't permission to use them!"
 succesClearChatMessageToExecutor: "clear chat for every players on server!"
 succesClearChatMessageToPlayers: "Chat on the server has been clear!"
+
+
+succesOFFChatMessageToExecutor: "Succesful disable chat on this server!"
+succesOFFChatMessageToPlayers: "chat on server has been disabled!"
+
+succesONChatMessageToExecutor: "Succesful enable chat on this server!"
+succesONChatMessageToPlayers: "chat on server has been enabled!"
+
+
+chatisAlreadyEnabled: "Chat is already enabled"
+chatisAlreadyDisabled: "Chat is already disabled"
