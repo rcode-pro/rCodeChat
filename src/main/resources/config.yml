@@ -1,0 +1,7 @@
+#support colors! &
+
+permission: "chat.perm"
+nopermMSG: "&8>> &cNo permission!"
+usage: "&eUsage /chat clear/off/on"
+succesClearChatMessageToExecutor: "clear chat for every players on server!"
+succesClearChatMessageToPlayers: "Chat on the server has been clear!"
