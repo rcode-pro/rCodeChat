@@ -19,7 +19,12 @@ public class ChatCMD implements CommandExecutor {
         if (!p.hasPermission(data.getMsg("permission"))) {
             String msg = data.getMsg("nopermMSG");
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
-            return false;
+            return zwrot;
+        }
+        if (args.length != 1) {
+            String usage = data.getMsg("usage");
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', usage));
+            return zwrot;
         }
         String clearp, clear;
         clearp = data.getMsg("succesClearChatMessageToExecutor");

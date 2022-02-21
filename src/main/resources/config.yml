@@ -9,8 +9,6 @@ usage: "&eUsage /chat clear/off/on"
 chatisOFF: "You haven't permission to use them!"
 succesClearChatMessageToExecutor: "clear chat for every players on server!"
 succesClearChatMessageToPlayers: "Chat on the server has been clear!"
-
-
 succesOFFChatMessageToExecutor: "Succesful disable chat on this server!"
 succesOFFChatMessageToPlayers: "chat on server has been disabled!"
 

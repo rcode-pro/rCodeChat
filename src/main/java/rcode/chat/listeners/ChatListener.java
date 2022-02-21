@@ -15,7 +15,7 @@ public class ChatListener implements Listener {
         if (!event.isCancelled()) {
             Data data = new Data(Main.getInstance().getConfig());
             if (data.getChat() == false) {
-                if (event.getPlayer().hasPermission(data.getMsg("permissiontoWriteifDisabled"))) {
+                if (!event.getPlayer().hasPermission(data.getMsg("permissiontoWriteifDisabled"))) {
                     event.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("chatisOFF")));
                     event.setCancelled(true);
                     return;
