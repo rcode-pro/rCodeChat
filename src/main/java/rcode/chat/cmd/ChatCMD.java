@@ -16,6 +16,9 @@ public class ChatCMD implements CommandExecutor {
         boolean zwrot = true;
         Player p = (Player)sender;
         Data data = new Data(Main.getInstance().getConfig());
+        if (!(sender instanceof Player)) {
+            return zwrot;
+        }
         if (!p.hasPermission(data.getMsg("permission"))) {
             String msg = data.getMsg("nopermMSG");
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
