@@ -36,14 +36,18 @@ public class ChatCMD implements CommandExecutor {
             case "off":
                 if (!data.getChat()) {
                     p.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("chatisAlreadyDisabled")));
+                break;
                 }
+                data.setChat(false);
                 Bukkit.getOnlinePlayers().forEach(player -> player.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("succesOFFChatMessageToPlayers"))));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("succesOFFChatMessageToExecutor")));
                 break;
             case "on":
                 if (data.getChat()) {
                     p.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("chatisAlreadyEnabled")));
+                    break;
                 }
+                data.setChat(true);
                 Bukkit.getOnlinePlayers().forEach(player -> player.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("succesONChatMessageToPlayers"))));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', data.getMsg("succesONChatMessageToExecutor")));
                 break;
