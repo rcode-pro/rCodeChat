@@ -2,6 +2,7 @@ main: rcode.chat.Main
 author: RCODE
 name: RChat
 api-version: 1.13
+version: 1.0
 commands:
   chat:
     aliases: [messages]
