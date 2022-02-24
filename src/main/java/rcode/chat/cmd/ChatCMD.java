@@ -14,11 +14,12 @@ public class ChatCMD implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         boolean zwrot = true;
-        Player p = (Player)sender;
-        Data data = new Data(Main.getInstance().getConfig());
         if (!(sender instanceof Player)) {
+            System.out.println("This command is not for console!");
             return zwrot;
         }
+        Player p = (Player)sender;
+        Data data = new Data(Main.getInstance().getConfig());
         if (!p.hasPermission(data.getMsg("permission"))) {
             String msg = data.getMsg("nopermMSG");
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
