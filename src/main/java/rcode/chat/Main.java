@@ -4,6 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import rcode.chat.cmd.ChatCMD;
 import rcode.chat.listeners.ChatListener;
+import rcode.chat.util.UpdateSpigot;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,7 +17,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         super.onEnable();
         saveDefaultConfig();
-        wiad.log(Level.INFO, "Enable plugin for Chat!");
+        UpdateSpigot.start();
         wiad.log(Level.INFO, "RCode plugin!");
         getCommand("chat").setExecutor(new ChatCMD());
         Bukkit.getPluginManager().registerEvents(new ChatListener(),this);

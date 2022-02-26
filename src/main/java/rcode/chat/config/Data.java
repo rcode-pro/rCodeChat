@@ -1,6 +1,7 @@
 package rcode.chat.config;
 
 import org.bukkit.configuration.file.FileConfiguration;
+import rcode.chat.Main;
 
 public class Data {
 
@@ -16,7 +17,9 @@ public class Data {
     }
 
     public void setChat(Boolean chat) {
+
         this.configuration.set("chatEnabled", chat);
+        Main.getInstance().reloadConfig();
     }
 
     public boolean getChat() {

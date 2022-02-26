@@ -9,13 +9,15 @@ import org.bukkit.entity.Player;
 import rcode.chat.Main;
 import rcode.chat.config.Data;
 
+import java.util.logging.Level;
+
 public class ChatCMD implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         boolean zwrot = true;
         if (!(sender instanceof Player)) {
-            System.out.println("This command is not for console!");
+            Bukkit.getLogger().log(Level.INFO, "This command is not for console!");
             return zwrot;
         }
 
